@@ -1,67 +1,16 @@
-#include <iostream>
-#include <math.h>
+#include<iostream>
 using namespace std;
-class shape
-{
-public:
-    virtual float area() {}
-    virtual float perimeter() = 0;
-    virtual void getdata() = 0;
-};
-class rectangle : public shape
-{
-    float l, b;
-
-public:
-    void getdata()
-    {
-        cout << "Length: ";
-        cin >> l;
-        cout << "Breadth: ";
-        cin >> b;
-    }
-    float area()
-    {
-        return (l * b);
-    }
-    float perimeter()
-    {
-        return (2 * (l + b));
-    }
-};
-class triangle : public shape
-{
-    float a, b, c;
-
-public:
-    void getdata()
-    {
-        cout << "\nThe three sides of a triangle: ";
-        cin >> a >> b >> c;
-    }
-    float area()
-    {
-        float s,A;
-        s=a+b+c/2.0;
-        A=sqrt(s*(s-a)*(s-b)*(s-c));
-        return(A);
-    }
-    float perimeter()
-    {
-        return(a+b+c);
-    }
-};
+#include<fstream>
 int main()
 {
-    shape *ps;
-    rectangle r;
-    triangle t;
-    ps=&r;
-    ps->getdata();
-    cout<<"\nArea of triangle is: "<<ps->area();
-    cout<<"\nperimeter of triangle is: "<<ps->perimeter();
-    ps=&t;
-    ps->getdata();
-    cout<<"\nArea of triangle is: "<<ps->area();
-    cout<<"\nperimeter of triangle is: "<<ps->perimeter();
+    ofstream fout("test.txt");  //write mode
+    char name[10], name1[10];
+    cout<<"Enter name: ";
+    cin>>name;
+    fout<<name;
+    fout.close();
+    ifstream fin("test.txt");   //read mode
+    fin>>name1;
+    cout<<name1;
+    fin.close();
 }

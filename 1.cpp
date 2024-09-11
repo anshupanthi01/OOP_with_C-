@@ -1,39 +1,22 @@
 #include<iostream>
 using namespace std;
-class student
+class mess
 {
-  char name[10],address[20],sem[5],faculty[25];
-  int crn;
-  public:
-  void getdata()
-  {
-    cout<<"Enter the details of student: "<<endl;
-    cout<<"Name: ";
-    cin>>name;
-    cout<<"Address: ";
-    cin>>address;
-    cout<<"Semester: ";
-    cin>>sem;
-    cout<<"Faculty: ";
-    cin>>faculty;
-    cout<<"College roll no: ";
-    cin>>crn;
-  }  
-  void display()
-  {
-    cout<<"The details of the students are as follows: "<<endl;
-    cout<<"Name: "<<name;
-    cout<<"\nAddress: "<<address;
-    cout<<"\nSemester: "<<sem;
-    cout<<"\nFaculty: "<<faculty;
-    cout<<"\nCollege roll no: "<<crn;
-  }
+    char str[50];
+    public:
+    void read()
+    {
+        cout<<"String is: ";
+        cin.getline(str,50);
+    }
+    void display()
+    {
+        cout<<endl<<str;
+    }
 };
 int main()
 {
-    student *ps;
-    student s;
-    ps=&s;
-    ps->getdata();
-    ps->display();
+    mess m;
+    m.read();
+    m.display();
 }
